@@ -1,9 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { DataConnection } from './data.db';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { DataDao } from './data.dao';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
@@ -12,12 +9,7 @@ import { DataDao } from './data.dao';
       connectionName: 'local',
       maxPoolSize: 100,
     }),
-    DataConnection,
-  ],
-  controllers: [AppController],
-  providers: [
-    AppService,
-    DataDao
+    TodoModule
   ],
 })
 export class AppModule {}
